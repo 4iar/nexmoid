@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import CredentialsForm from './screens/CredentialsForm';
+import SmsForm from './screens/SmsForm';
 import sendSms from './utils/sendSms';
 
 
@@ -23,10 +24,15 @@ export default class Nexmoid extends Component {
     });
   }
 
+  handleSendSms(sms) {
+    const callback = () => {};  // placeholder
+    sendSms(this.state.credentials, sms, callback);
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        {this.state.credentials ? <View><Text>ready</Text></View> : <CredentialsForm handleSubmit={this.handleCredentials.bind(this)}/>}
+        {this.state.credentials ? <SmsForm handleSubmit={this.handleSendSms.bind(this)}/> : <CredentialsForm handleSubmit={this.handleCredentials.bind(this)}/>}
       </View>
     );
   }

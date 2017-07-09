@@ -20,6 +20,12 @@ export default class SmSForm extends Component {
       to: this.state.to,
       text: this.state.text
     });
+
+    this.setState({
+      to: "",
+      from: "",
+      text: ""
+    });
   }
 
   render() {
