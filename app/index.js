@@ -4,6 +4,7 @@ import {
   Text,
   View
 } from 'react-native';
+import sendSms from './utils/sendSms';
 
 
 export default class Nexmoid extends Component {
