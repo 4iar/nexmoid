@@ -4,24 +4,29 @@ import {
   Text,
   View
 } from 'react-native';
+
+import CredentialsForm from './screens/CredentialsForm';
 import sendSms from './utils/sendSms';
 
 
 export default class Nexmoid extends Component {
+  constructor() {
+    super();
+    this.state = {
+      credentials: null
+    }
+  }
+
+  handleCredentials(credentials) {
+    this.setState({
+      credentials
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-          asldkjlfkjalskdjlkj
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        {this.state.credentials ? <View><Text>ready</Text></View> : <CredentialsForm handleSubmit={this.handleCredentials.bind(this)}/>}
       </View>
     );
   }
